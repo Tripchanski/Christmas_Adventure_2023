@@ -1,11 +1,12 @@
-from level_map import *
+from modules.level_map import *
 import pygame
-import sys
 # ================================
-from buttons import Button
-from wall import Wall
-from hero import Hero
-from level import Level
+from modules.buttons import Button
+from modules.wall import Wall
+from modules.hero import Hero
+from modules.level import Level
+from modules.make_text import *
+
 # ================================
 
 clock = pygame.time.Clock()
@@ -21,7 +22,7 @@ menu_music = pygame.mixer.Sound('sounds/music_1.mp3')               #      MUSIC
 
 text_font = pygame.font.SysFont('comicsansms', 45)
 
-text = text_font.render("Christmas Adventure 2023",True, (0,255,0))
+text1 = text_font.render("Christmas Adventure 2023",True, (0,255,0))
 text2 = text_font.render('Salam Brat!!!', True, (102,0,0))
 text3 = text_font.render('Тут будут настпройки но пока их нет :(', True, (102,0,0))
 
@@ -50,14 +51,12 @@ exit_img_hover = pygame.transform.scale(exit_img_hover, (200, 200))
 
 # ======================================================================================================================================================      
 
-
 start_button = Button(270, 270, 20, 280, start_img, start_img_hover)
 opt_button = Button(250, 250, 235, 530, opt_img, opt_img_hover)
 exit_button_menu = Button(200, 200, 30, 590, exit_img, exit_img_hover)
 
 
 quit_button2 = Button(160, 160, window_size[0] - 165, 0, exit_img, exit_img_hover)
-
 
 # ===============================================================================================================================================
 
@@ -73,7 +72,7 @@ def main_menu():
 
     # =================================================
 
-        start_button.draw(start_game)
+        start_button.draw(diolog)
         opt_button.draw(opttions)
         exit_button_menu.draw(quit)
 
@@ -84,7 +83,7 @@ def main_menu():
         exit_button_menu.animate(screen)
 
     # =================================================
-        screen.blit(text, (window_size[0]//2-250, window_size[1]//2-400))
+        screen.blit(text1, (window_size[0]//2-250, window_size[1]//2-400))
 
 
         pygame.display.update()
@@ -92,6 +91,40 @@ def main_menu():
 # ===============================================================================================================================================
 
 level = Level(level_map, screen)
+
+def diolog():
+
+    click = pygame.mouse.get_pressed()
+    mouse = pygame.mouse.get_pos()
+
+    counter = 0
+
+    diol = True
+
+    r = pygame.Rect(10, 50, 500, 50)
+    r2 = pygame.Rect(10, 300, 500, 50)
+
+    while diol:
+        for ev in pygame.event.get():
+            if ev.type == pygame.QUIT:
+                pygame.quit()
+            if ev.type == pygame.MOUSEBUTTONUP:
+                counter += 1
+        
+        screen.fill((119, 210, 153))
+
+        if counter == 6:
+            start_game()
+
+        if counter % 2 == 0:
+            pygame.draw.rect(screen, (255, 0, 0), r, 0)
+        if counter % 2 != 0:
+            pygame.draw.rect(screen, (255, 0, 0), r2, 0)
+
+        text.draw_text(counter)
+
+        pygame.display.update()
+        pygame.display.flip()
 
 def start_game():
 
@@ -101,7 +134,7 @@ def start_game():
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+            
 
         quit_button2.draw(quit)
         screen.fill((0,0,150))
@@ -121,7 +154,7 @@ def opttions():
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                
         exit_button_menu.draw(quit)
 
         screen.fill((119, 210, 153))

@@ -1,7 +1,6 @@
 import pygame
-from level_map import wall_size, window_size, screen
-from hero import Hero
-from wall import Wall
+from modules.level_map import wall_size, Wall, window_size, screen
+from modules.hero import Hero
 
 class Level:
     def __init__(self, level_data, surface):
@@ -47,7 +46,6 @@ class Level:
             if wall.hitbox.colliderect(self.player.hitbox):
                 if player.direction.x < 0:
                     player.hitbox.left = wall.hitbox.right
-                    print(window_size)
                 elif player.direction.x > 0:
                     player.hitbox.right = wall.hitbox.left
 
