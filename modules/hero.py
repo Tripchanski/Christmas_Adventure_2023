@@ -4,8 +4,6 @@ class Hero():
     def __init__(self, start_x, start_y, width, height, color, image, animation, speed):
         #default -=-=-
         self.hitbox = pygame.Rect(start_x, start_y, width, height)
-        self.start_x = start_x
-        self.start_y = start_y
         self.width = width
         self.height = height
         self.speed = speed
