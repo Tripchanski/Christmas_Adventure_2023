@@ -1,0 +1,10 @@
+{
+    "volume": {
+        "music_volume": 0.5,
+        "sounds_volume": 0.5
+    },
+    "screen_size": {
+        "screen_width": 1536,
+        "screen_height": 864
+    }
+}
