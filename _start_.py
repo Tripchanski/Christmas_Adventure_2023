@@ -15,8 +15,8 @@ from modules.json import *
 clock = pygame.time.Clock()
 
 # =============================================================================================================================================
-music_list = [pygame.mixer.Sound('sounds/shedrik.mp3'), pygame.mixer.Sound("sounds/i'm_sorry.mp3"), pygame.mixer.Sound('sounds/default.mp3'), pygame.mixer.Sound('sounds/picturesque.mp3'), pygame.mixer.Sound('sounds/day_snow.mp3'), pygame.mixer.Sound('sounds/window.mp3'), pygame.mixer.Sound('sounds/home.mp3'), pygame.mixer.Sound('sounds/i_miss_you.mp3')]                #      MUSIC and SOUNDS      #
-sounds_list = [pygame.mixer.Sound('sounds/steps.mp3'), pygame.mixer.Sound('sounds/wind.mp3'), pygame.mixer.Sound('sounds/snow.mp3')]
+music_list = [pygame.mixer.Sound('sounds/shedrik.wav'), pygame.mixer.Sound("sounds/i'm_sorry.wav"), pygame.mixer.Sound('sounds/default.wav'), pygame.mixer.Sound('sounds/picturesque.wav'), pygame.mixer.Sound('sounds/day_snow.wav'), pygame.mixer.Sound('sounds/window.wav'), pygame.mixer.Sound('sounds/home.wav'), pygame.mixer.Sound('sounds/i_miss_you.wav')]                #      MUSIC and SOUNDS      #
+sounds_list = [pygame.mixer.Sound('sounds/steps.wav'), pygame.mixer.Sound('sounds/wind.wav'), pygame.mixer.Sound('sounds/snow.wav')]
 
 for music in music_list:
     music.set_volume(round(read('json/settings.json')['volume']['music_volume'], 1))
