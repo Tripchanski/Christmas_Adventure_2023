@@ -10,6 +10,7 @@ from modules.platform import Platform
 from modules.barrel import Barrel
 from modules.npc import Npc
 from modules.exit import Exit
+from modules.make_text import Text
 
 player1_images = ['images/animations/hero_1_1.png', 'images/animations/hero_1_2.png', 'images/animations/hero_1_3.png', 'images/animations/hero_1_1.png', 'images/animations/hero_1_4.png', 'images/animations/hero_1_5.png']
 player2_images = ['images/animations/hero_2.png', 'images/animations/hero_2_3.png', 'images/animations/hero_2_4.png', 'images/animations/hero_2.png', 'images/animations/hero_2_1.png', 'images/animations/hero_2_2.png']
@@ -31,6 +32,7 @@ class Level:
         self.stop_counter = 0
         self.sounds_counter = 0
         self.sounds = sounds
+        self.const_drop_amount = len(self.drop_list)
 
     def setup_level(self, layout):
         self.wall_list = []
@@ -41,6 +43,7 @@ class Level:
         self.platform_list = []
         self.barrel_list = []
         self.npc_list = []
+        self.info_image = None
         self.player = None
         self.exit = None
         self.background_x = 0
@@ -185,8 +188,10 @@ class Level:
                 if col == 'BB':
                     self.barrel_list.append(Barrel('images/__game_picture__/crate.png',x, y, wall_size, wall_size, (255, 0, 0)))
                 if col == 'DG':
-                    drop = Pickup('images/gifts/gift_7.png', x + ((wall_size - 65) // 2), y + ((wall_size - 65) // 2), 65, 65, (222, 0, 255), 1)
+                    i = random.randint(1, 9)
+                    drop = Pickup(f'images/gifts/gift_{i}.png', x + ((wall_size - 65) // 2), y + ((wall_size - 65) // 2), 65, 65, (222, 0, 255), 1)
                     self.drop_list.append(drop)
+                    self.info_image = Object('images/gifts/gift_10.png', screen_width*0.010, screen_height*0.018, screen_width*0.056, screen_height*0.1, (119,136,153))
                 if col == 'BD':
                     drop = Pickup('images/gifts/bread.png', x + ((wall_size - 100) // 2), y + (wall_size - 45), 100, 45, (222, 0, 255), 1)
                     self.drop_list.append(drop)
@@ -206,8 +211,9 @@ class Level:
                     drop = Pickup('images/gifts/tea_leaf.png', x + ((wall_size - 65) // 2), y + ((wall_size - 65) // 2), 65, 65, (222, 0, 255), 1)
                     self.drop_list.append(drop)
                 if col == 'DE':
-                    drop = Pickup('images/gifts/teapot.png', x + ((wall_size - 65) // 2), y + ((wall_size - 65) // 2), 65, 65, (222, 0, 255), 1)
+                    drop = Pickup('images/gifts/teapot.png', x + ((wall_size - 90) // 2), y + ((wall_size - 68) // 2), 86, 64, (222, 0, 255), 1)
                     self.drop_list.append(drop)
+                    self.info_image = Object('images/gifts/teapot.png', screen_width*0.010, screen_height*0.018, screen_height*0.116, screen_width*0.053, (119,136,153))
                 if col == 'NR':
                     self.npc_list.append(Npc(-5, 'r', 'images/__game_picture__/heroes/elf.png', npc_images, x, y - 92, 56, 200, (255, 0, 0)))
                 if col == 'NL':
@@ -403,7 +409,7 @@ class Level:
                     player.hitbox.left = wall.hitbox.right
                     self.world_shift_x = 0
 
-    def y_movement_collision(self, do_sound=True):
+    def y_movement_collision(self):
         player = self.player
         player.turnon_gravity(self.stop_move)
 
@@ -538,6 +544,10 @@ class Level:
             self.y_movement_collision()
         self.platform_collision()
 
+        self.info_image.animate(screen)
+        self.info_text = Text([f'{self.const_drop_amount-len(self.drop_list)}/{self.const_drop_amount}'],(255,255,255),int(screen_width*0.019))
+        self.info_text.draw_game_text(self.info_image.hitbox.x + (self.info_image.hitbox.width - self.info_text.width)/2, self.info_image.hitbox.y + (self.info_image.hitbox.height - self.info_text.height)/2)
+
     #=================================================================
     def show_background(self, screen, background, move=False):
         self.scroll_x()
@@ -625,5 +635,5 @@ class Level:
             wall.animate(screen)
             wall.update(self.world_shift_x, self.world_shift_y)
         
-        self.y_movement_collision(False)
+        self.y_movement_collision()
     #=================================================================
