@@ -246,7 +246,7 @@ class Level:
                     platform = Platform('up', 5, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E0':
-                    platform = Platform('down', 10, 4, 'x', 'images/__game_picture__/elevator.png', x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 9, 4, 'x', 'images/__game_picture__/elevator.png', x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E1':
                     platform = Platform('down', 6, 4, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size * 2, 20, (47,79,79))
@@ -264,7 +264,7 @@ class Level:
                     platform = Platform('down', 13, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E6':
-                    platform = Platform('up', 10, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('up', 9, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E7':
                     platform = Platform('up', 6, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
@@ -273,7 +273,7 @@ class Level:
                     platform = Platform('up', 5, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E9':
-                    platform = Platform('down', 7, 5, 'x', 'images/__game_picture__/elevator.png',x, y+108, wall_size * 2, 20, (47,79,79))
+                    platform = Platform('down', 7, 5, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size * 2, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'D1':
                     door = Door('images/__game_picture__/force_door_zipped.png', x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 1)
@@ -436,14 +436,14 @@ class Level:
         for platform in self.platform_list:
             if platform.hitbox.colliderect(self.player.hitbox):
                 # X -=-=-
-                if platform.direction == 'x':
-                    if player.hitbox.right >= platform.hitbox.left and player.hitbox.right <= platform.hitbox.left + 5 + 2:
-                        player.hitbox.right = platform.hitbox.left
-                        self.world_shift_x = 0
-                    elif player.hitbox.left <= platform.hitbox.right and player.hitbox.left >= platform.hitbox.right - 5 - 2:
-                        player.hitbox.left = platform.hitbox.right
-                        self.world_shift_x = 0
-                elif platform.direction == 'y':
+                # if platform.direction == 'x':
+                #     if player.hitbox.right >= platform.hitbox.left and player.hitbox.right <= platform.hitbox.left + 5 + 2:
+                #         player.hitbox.right = platform.hitbox.left
+                #         self.world_shift_x = 0
+                #     elif player.hitbox.left <= platform.hitbox.right and player.hitbox.left >= platform.hitbox.right - 5 - 2:
+                #         player.hitbox.left = platform.hitbox.right
+                #         self.world_shift_x = 0
+                if platform.direction == 'y':
                     if player.hitbox.right >= platform.hitbox.left and player.hitbox.right <= platform.hitbox.left + 5:
                         player.hitbox.right = platform.hitbox.left
                         self.world_shift_x = 0
