@@ -246,7 +246,7 @@ class Level:
                     platform = Platform('up', 5, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E0':
-                    platform = Platform('down', 10, 4, 'x', 'images/__game_picture__/elevator.png', x, y+108, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 10, 4, 'x', 'images/__game_picture__/elevator.png', x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E1':
                     platform = Platform('down', 6, 4, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size * 2, 20, (47,79,79))
@@ -264,10 +264,10 @@ class Level:
                     platform = Platform('down', 13, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E6':
-                    platform = Platform('up', 10, 2, 'x', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
+                    platform = Platform('up', 10, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E7':
-                    platform = Platform('down', 6, 2, 'x', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
+                    platform = Platform('up', 6, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E8':
                     platform = Platform('up', 5, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
