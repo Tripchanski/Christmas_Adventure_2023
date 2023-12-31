@@ -1,6 +1,6 @@
 import pygame
+import time
 from modules.level_map import window_size
-
 class Level_arm():
     def __init__(self, image_on, image_off, x, y, width, height, pk):
         self.hitbox = pygame.Rect(x, y, width, height)
@@ -29,6 +29,7 @@ class Level_arm():
         if player.hitbox.colliderect(self.hitbox):
             if keys[pygame.K_e]:
                 self.is_on = True
+
 
     def update(self, x_shift, y_shift):
         self.hitbox.x += x_shift

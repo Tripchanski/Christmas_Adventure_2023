@@ -17,7 +17,7 @@ class Sled():
         self.animCounter = 0
         #image -=-=-
         self.image = pygame.image.load(image)
-        self.image = pygame.transform.scale(self.image, (self.hitbox.width + int(screen_width*0.156), self.hitbox.height + int(screen_height*0.046)))
+        self.image = pygame.transform.scale(self.image, (self.hitbox.width + int(screen_width*0.156), self.hitbox.height + int(screen_height*0.07)))
 
         self.animation_right = []
         for src in animation:

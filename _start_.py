@@ -16,8 +16,8 @@ from modules.json import *
 clock = pygame.time.Clock()
 
 # =============================================================================================================================================
-music_list = [pygame.mixer.Sound('sounds/shedrik.wav'), pygame.mixer.Sound("sounds/i'm_sorry.wav"), pygame.mixer.Sound('sounds/default.wav'), pygame.mixer.Sound('sounds/picturesque.wav'), pygame.mixer.Sound('sounds/day_snow.wav'), pygame.mixer.Sound('sounds/window.wav'), pygame.mixer.Sound('sounds/home.wav'), pygame.mixer.Sound('sounds/i_miss_you.wav')]                #      MUSIC and SOUNDS      #
-sounds_list = [pygame.mixer.Sound('sounds/steps.wav'), pygame.mixer.Sound('sounds/wind.wav'), pygame.mixer.Sound('sounds/snow.wav')]
+music_list = [pygame.mixer.Sound('sounds/Only_Clear_Minds.mp3'), pygame.mixer.Sound("sounds/Dialog.mp3"), pygame.mixer.Sound('sounds/Windy_Day.mp3'), pygame.mixer.Sound('sounds/Game_3.mp3'), pygame.mixer.Sound('sounds/Windy_Day.mp3'), pygame.mixer.Sound('sounds/Game_1.mp3'), pygame.mixer.Sound('sounds/Game_2.mp3'), pygame.mixer.Sound('sounds/No_More.mp3')]                #      MUSIC and SOUNDS      #
+sounds_list = [pygame.mixer.Sound('sounds/SOUNDS/Step.mp3'), pygame.mixer.Sound('sounds/SOUNDS/Wind.mp3'), pygame.mixer.Sound('sounds/SOUNDS/Snow_Step.mp3'), pygame.mixer.Sound('sounds/SOUNDS/Button_Click.mp3')]
 
 for music in music_list:
     music.set_volume(round(read('json/settings.json')['volume']['music_volume'], 1))
@@ -34,15 +34,15 @@ santa = pygame.transform.scale(santa, (int(screen_width*0.289), int(screen_heigh
 main_elf = pygame.image.load('images/__game_picture__/heroes/main_elf.png')
 main_elf = pygame.transform.scale(main_elf, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.469 + 507*0.3)))
 
-elf1 = pygame.image.load('images/__game_picture__/heroes/hero_1.png')
+elf1 = pygame.image.load('images/animations/hero_1_1.png')
 elf1 = pygame.transform.scale(elf1, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.469 + 507*0.3)))
 elf1 = pygame.transform.flip(elf1, True, False)
 
-elf2 = pygame.image.load('images/__game_picture__/heroes/hero_2.png')
-elf2 = pygame.transform.scale(elf2, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.429 + 507*0.3)))
+elf2 = pygame.image.load('images/animations/hero_2.png')
+elf2 = pygame.transform.scale(elf2, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.469 + 507*0.3)))
 elf2 = pygame.transform.flip(elf2, True, False)
 
-elf3 = pygame.image.load('images/__game_picture__/heroes/hero_3.png')
+elf3 = pygame.image.load('images/animations/hero_3_1.png')
 elf3 = pygame.transform.scale(elf3, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.469 + 507*0.3)))
 elf3 = pygame.transform.flip(elf3, True, False)
 
@@ -51,7 +51,7 @@ main_elf_black = pygame.transform.scale(main_elf_black, (int(screen_width*0.172 
 main_elf_black.set_alpha(opacity)
 
 elf2_black = pygame.image.load('images/shadow/hero_2_black.png')
-elf2_black = pygame.transform.scale(elf2_black, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.429 + 507*0.3)))
+elf2_black = pygame.transform.scale(elf2_black, (int(screen_width*0.172 + 331*0.3),int(screen_height*0.469 + 507*0.3)))
 elf2_black = pygame.transform.flip(elf2_black, True, False)
 elf2_black.set_alpha(opacity)
 
@@ -74,31 +74,31 @@ santa_black.set_alpha(opacity)
 # ==============================================================================================================================================
 
 text_font = pygame.font.SysFont('comicsansms', 45)
-
+'images/button_exit.png'
 #BUTTONS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-start_button = Button(screen_width*0.17, screen_height*0.3, screen_width*0.028, screen_height*0.43, 'images/button_play.png', 'images/button_play_hover.png')
-opt_button = Button(screen_width*0.156, screen_height*0.277, screen_width*0.25, screen_height*0.599, 'images/button_settings.png', 'images/button_settings_hover.png')
-exit_button_menu = Button(screen_width*0.156, screen_height*0.277, screen_width*0.48, screen_height*0.648, 'images/button_exit.png', 'images/button_exit-hover.png')
+start_button = Button(screen_width*0.12, screen_height*0.33, screen_width*0.03, screen_height*0.58, 'images/BUTTONS/Button_Play.png', 'images/BUTTONS/Button_Play_Hover.png')
+opt_button = Button(screen_width*0.12, screen_height*0.33, screen_width*0.18, screen_height*0.58, 'images/BUTTONS/Button_Settings.png', 'images/BUTTONS/Button_Settings_Hover.png')
+exit_button_menu = Button(screen_width*0.12, screen_height*0.33, screen_width*0.33, screen_height*0.58, 'images/BUTTONS/Button_Exit.png', 'images/BUTTONS/Button_Exit_Hover.png')
 return_button = Button(screen_width*0.078, screen_height*0.138, 10, 10, 'images/button_return.png', 'images/button_return_hover.png')
 #BUTTONS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # =================================================================DIALOG=====================================================================================   
 
-diologfont_img = pygame.image.load('images/background.jpg')
+diologfont_img = pygame.image.load('images/background.jpg.png')
 diologfont_img = pygame.transform.scale(diologfont_img, (screen_width, screen_height))
 
-dialogfont2_img = pygame.image.load('images/background_dialog.jpg')
+dialogfont2_img = pygame.image.load('images/background_dialog.jpg.png')
 dialogfont2_img = pygame.transform.scale(dialogfont2_img, (screen_width, screen_height))
 
-text_field = Object('images/__game_picture__/tab_for_dialog.png', 0, screen_height-screen_height*0.314, screen_width, screen_height*0.324, (200,200,200))
-text_field2 = Object('images/__game_picture__/tab_for_dialog.png', 0, screen_height-screen_height*0.314, screen_width, screen_height*0.324, (200,200,200))
+text_field = Object('images/__game_picture__/tab_for_dialog.png', screen_width*0.25, screen_height-screen_height*0.314, screen_width*0.5, screen_height*0.324, (200,200,200))
+text_field2 = Object('images/__game_picture__/tab_for_dialog.png', screen_width*0.25, screen_height-screen_height*0.314, screen_width*0.5, screen_height*0.324, (200,200,200))
 
 # ====================================================================================================================================================== 
 
 #ESCAPE-=-=-=-=-MENU
-tab = Object('images/tab.png', screen_width*0.369, screen_height*0.153, screen_width*0.261, screen_height*0.648, None)
-restart_button = Button(screen_width*0.104,screen_height*0.185,tab.hitbox.bottomright[0]-screen_width*0.104/2,tab.hitbox.bottomright[1]-screen_height*0.185/2, 'images/button_restart.png', 'images/button_restart_hover.png')
-exit_button_game = Button(screen_width*0.104, screen_height*0.185, tab.hitbox.bottomleft[0]-screen_width*0.104/2,tab.hitbox.bottomleft[1]-screen_height*0.185/2, 'images/button_exit.png', 'images/button_exit-hover.png')
+tab = Object('images/tab.png', screen_width*0.369, screen_height*0.103, screen_width*0.261, screen_height*0.648, None)
+restart_button = Button(screen_width*0.12,screen_height*0.33,screen_width*0.24,tab.hitbox.bottomright[1]-screen_height*0.355/2, 'images/button_restart.png', 'images/button_restart_hover.png')
+exit_button_game = Button(screen_width*0.12, screen_height*0.33,screen_width*0.64,tab.hitbox.bottomleft[1]-screen_height*0.355/2, 'images/BUTTONS/Button_Exit.png', 'images/BUTTONS/Button_Exit_Hover.png')
 bg = Object('images/black_background.png', 0, 0, screen_width, screen_height, None)
 #ESCAPE-=-=-=-=-MENU
 
@@ -109,8 +109,8 @@ control = Object('images/__game_picture__/help.png', screen_width*0.312, screen_
 #SETTINGS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 def main_menu():
-    bg_img = pygame.image.load('images/background.png')
-    bg_img2 = pygame.image.load('images/background2.png')
+    bg_img = pygame.image.load('images/BACKGROUNDS/background_1.png')
+    bg_img2 = pygame.image.load('images/BACKGROUNDS/background_2.png')
     bg_img = pygame.transform.scale(bg_img, (screen_width, screen_height))
     bg_img2 = pygame.transform.scale(bg_img2, (screen_width, screen_height))
 
@@ -125,12 +125,15 @@ def main_menu():
     while main:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
-            if ev.type == pygame.MOUSEBUTTONUP:
+            if ev.type == pygame.MOUSEBUTTONUP and ev.button == 1:
                 start_button.action('press')
                 if start_button.pressed == True:
+                    sounds_list[3].play()
                     show = True
                 if not show:
+                    sounds_list[3].play()
                     opt_button.action(options)
                     exit_button_menu.action(pygame.quit)
 
@@ -172,18 +175,31 @@ def dialog():
 
     counter = 1
     dialog_start = True
-    
+    menu_open = False
+    menu_text = Text(['Меню'],(255,255,255),int(screen_width*0.026))
     transition = Transition('images/__game_picture__/transitions/1.jpg','images/__game_picture__/transitions/2.jpg')
     music_list[1].play(loops=-1)
 
     while dialog_start:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
-            if ev.type == pygame.MOUSEBUTTONUP:
+            if ev.type == pygame.KEYUP:
+                if ev.key == pygame.K_ESCAPE:
+                    sounds_list[3].play()
+                    if menu_open == True:
+                        menu_open = False
+                    elif menu_open == False:
+                        menu_open = True
+            if ev.type == pygame.MOUSEBUTTONUP and ev.button == 1 and menu_open == False:
+                sounds_list[3].play()
                 if counter < 6:
                     counter += 1
-
+            if ev.type == pygame.MOUSEBUTTONUP and menu_open == True:
+                sounds_list[3].play()
+                exit_button_game.action(main_menu, [music_list[1]])
+                restart_button.action(dialog, [music_list[1]])
         screen.blit(diologfont_img, (0, 0))
         
         if counter == 6:
@@ -199,8 +215,8 @@ def dialog():
 
             #KATYA =========================
             if counter == 1 or counter == 2:
-                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
-                screen.blit(elf2_black, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
+                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
+                screen.blit(elf2_black, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
             #KATYA =========================
 
             #OLEG ==========================
@@ -216,6 +232,12 @@ def dialog():
             #NIKOLAY =======================
             
             text.draw_text(counter, screen_width*0.338, text_field2.hitbox.y + screen_height*0.069)
+        if menu_open == True:
+            bg.animate(screen)
+            tab.animate(screen)
+            exit_button_game.animate(screen)
+            restart_button.animate(screen)
+            menu_text.draw_game_text(tab.hitbox.x + screen_width*0.091, tab.hitbox.y + screen_height*0.027)
         if transition.opacity_s != 0:
             transition.transition_start(screen)
 
@@ -234,17 +256,31 @@ def dialog2():
     dialog_start = True
     volume = round(read('json/settings.json')['volume']['music_volume'], 1)
     end = False
-
+    menu_open = False
+    menu_text = Text(['Меню'],(255,255,255),int(screen_width*0.026))
     transition = Transition('images/__game_picture__/transitions/2.jpg','images/__game_picture__/transitions/3.jpg')
 
     while dialog_start:
 
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
-            if ev.type == pygame.MOUSEBUTTONUP:
+            if ev.type == pygame.KEYUP:
+                if ev.key == pygame.K_ESCAPE:
+                    sounds_list[3].play()
+                    if menu_open == True:
+                        menu_open = False
+                    elif menu_open == False:
+                        menu_open = True
+            if ev.type == pygame.MOUSEBUTTONUP and ev.button == 1 and menu_open == False:
+                sounds_list[3].play()
                 if counter < 40:
                     counter += 1
+            if ev.type == pygame.MOUSEBUTTONUP and menu_open == True:
+                sounds_list[3].play()
+                exit_button_game.action(main_menu, [music_list[1]])
+                restart_button.action(dialog2, [music_list[1]])
 
         screen.blit(dialogfont2_img, (0, 0))
 
@@ -279,11 +315,11 @@ def dialog2():
 
             #KATYA =========================
             if counter == 3 or counter == 13 or counter == 15 or counter == 17 or counter == 19 or counter == 28:
-                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
+                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
                 screen.blit(santa_black, (0,screen_height*0.069))
             if counter == 4 or counter == 5 or counter == 11 or counter == 12 or counter == 14 or counter == 16 or counter == 18:
-                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
-                screen.blit(elf2_black, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
+                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
+                screen.blit(elf2_black, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
             #KATYA =========================
 
             #OLEG ==========================
@@ -296,7 +332,12 @@ def dialog2():
             #OLEG ==========================
 
             text2.draw_text(counter, screen_width*0.338, text_field2.hitbox.y + screen_height*0.069)
-
+        if menu_open == True:
+            bg.animate(screen)
+            tab.animate(screen)
+            exit_button_game.animate(screen)
+            restart_button.animate(screen)
+            menu_text.draw_game_text(tab.hitbox.x + screen_width*0.091, tab.hitbox.y + screen_height*0.027)
         if transition.opacity_s != 0:
             transition.transition_start(screen)
 
@@ -315,19 +356,32 @@ def dialog3():
     transition = Transition('images/__game_picture__/transitions/7.jpg','images/__game_picture__/transitions/8.png')
 
     music_list[1].play(loops=-1)
-
+    menu_open = False
+    menu_text = Text(['Меню'],(255,255,255),int(screen_width*0.026))
     volume = round(read('json/settings.json')['volume']['music_volume'], 1)
     end = False
 
     while dialog_start:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
-            if ev.type == pygame.MOUSEBUTTONUP:
+            if ev.type == pygame.KEYUP:
+                if ev.key == pygame.K_ESCAPE:
+                    sounds_list[3].play()
+                    if menu_open == True:
+                        menu_open = False
+                    elif menu_open == False:
+                        menu_open = True
+            if ev.type == pygame.MOUSEBUTTONUP and ev.button == 1 and menu_open == False:
+                sounds_list[3].play()
                 if counter < 21:
                     counter += 1
+            if ev.type == pygame.MOUSEBUTTONUP and menu_open == True:
+                sounds_list[3].play()
+                exit_button_game.action(main_menu, [music_list[1]])
+                restart_button.action(dialog3, [music_list[1]])
         screen.blit(diologfont_img, (0, 0))
-
         if end:
             if round(volume,2) > 0.00:
                 volume -= 0.01
@@ -359,11 +413,11 @@ def dialog3():
 
             #KATYA =========================
             if counter == 5 or counter == 14 or counter == 19:
-                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
+                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
                 screen.blit(santa_black, (0,screen_height*0.069))
             if counter == 6:
-                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
-                screen.blit(elf2_black, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.429 + 507*0.3)))
+                screen.blit(elf2, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
+                screen.blit(elf2_black, (screen_width-int(screen_width*0.172 + 331*0.3),screen_height-int(screen_height*0.469 + 507*0.3)))
             #KATYA =========================
 
             #NIKOLAY =======================
@@ -377,9 +431,15 @@ def dialog3():
 
             text3.draw_text(counter, screen_width*0.338, text_field2.hitbox.y + screen_height*0.069)
 
+        if menu_open == True:
+            bg.animate(screen)
+            tab.animate(screen)
+            exit_button_game.animate(screen)
+            restart_button.animate(screen)
+            menu_text.draw_game_text(tab.hitbox.x + screen_width*0.091, tab.hitbox.y + screen_height*0.027)
+
         if transition.opacity_s != 0:
             transition.transition_start(screen)
-
         pygame.display.update()
         clock.tick(60)
 #=====================================================================================================================
@@ -407,16 +467,21 @@ def first_level():
     transition = Transition('images/__game_picture__/transitions/3.jpg','images/__game_picture__/transitions/4.jpg')
 
     mision_text = Text([
-        "Збери всі 10 подарунків."
+        "Санті погано.",
+        "Йому потрібна допомога!",
+        "Збери всі 10 подарунків.",
+        "Та повертайся назад."
     ], (255,255,255), int(screen_width*0.018))
     menu_text = Text(['Меню'],(255,255,255),int(screen_width*0.026))
 
     while game:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
             if ev.type == pygame.KEYUP:
                 if ev.key == pygame.K_ESCAPE:
+                    sounds_list[3].play()
                     if menu_open == True:
                         menu_open = False
                     else:
@@ -426,6 +491,7 @@ def first_level():
                         if len(level.drop_list) == 0:
                             level_end = True
             if ev.type == pygame.MOUSEBUTTONUP and menu_open == True:
+                sounds_list[3].play()
                 exit_button_game.action(main_menu, [music_list[5]])
                 restart_button.action(first_level, [music_list[5]])
 
@@ -477,7 +543,7 @@ def second_level():
     game = True
 
     volume = round(read('json/settings.json')['volume']['music_volume'], 1)
-    music_list[6].play(loops=-1)
+    # music_list[6].play(loops=-1)
 
     level = Level(level_map2, sounds_list)
     menu_open = False
@@ -490,17 +556,20 @@ def second_level():
     transition = Transition('images/__game_picture__/transitions/4.jpg','images/__game_picture__/transitions/5.jpg')
 
     mision_text =Text([
-        "  Збери всі інгредієнти",
-        "  для чаю."
+        "Збери всі інгредієнти",
+        "для чаю. Щоб Санта",
+        "поскоріше одужав."
     ], (255,255,255), int(screen_width*0.018))
     menu_text = Text(['Меню'],(255,255,255),int(screen_width*0.026))
 
     while game:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
             if ev.type == pygame.KEYUP:
                 if ev.key == pygame.K_ESCAPE:
+                    sounds_list[3].play()
                     if menu_open == True:
                         menu_open = False
                     else:
@@ -510,6 +579,7 @@ def second_level():
                         if len(level.drop_list) == 0:
                             level_end = True
             if ev.type == pygame.MOUSEBUTTONUP and menu_open == True:
+                sounds_list[3].play()
                 exit_button_game.action(main_menu,[music_list[6]])
                 restart_button.action(second_level,[music_list[6]])
 
@@ -523,7 +593,7 @@ def second_level():
 
         level.run(can_move, level_end)
 
-        music_list[6].set_volume(round(volume, 2))
+        # music_list[6].set_volume(round(volume, 2))
 
         if menu_open == True:
             bg.animate(screen)
@@ -566,9 +636,9 @@ def third_level():
     nikolay_sled.hitbox.x = nikolay_sled.start_x
     nikolay_sled.hitbox.y = nikolay_sled.start_y
 
-    pigeon1 = Pigeon(window_size[0] + 400, random.randint(50, screen_height - int(screen_height*0.074) - 10), screen_width*0.059,screen_height*0.074,(10,10,10), "images/__game_picture__/bird.png", pigeon_animation, random.randint(int(screen_width*0.005), int(screen_width*0.008)))
-    pigeon2 = Pigeon(window_size[0] + 400, random.randint(50, screen_height - int(screen_height*0.074) - 10), screen_width*0.059,screen_height*0.074,(10,10,10), "images/__game_picture__/bird.png", pigeon_animation, random.randint(int(screen_width*0.005), int(screen_width*0.008)))
-    pigeon3 = Pigeon(window_size[0] + 400, random.randint(50, screen_height - int(screen_height*0.074) - 10), screen_width*0.059,screen_height*0.074,(10,10,10), "images/__game_picture__/bird.png", pigeon_animation, random.randint(int(screen_width*0.005), int(screen_width*0.008)))
+    pigeon1 = Pigeon(window_size[0] + 400, random.randint(50, screen_height - int(screen_height*0.074) - 10), screen_width*0.059,screen_height*0.074,(10,10,10), "images/animations/bird_1.png", pigeon_animation, random.randint(int(screen_width*0.005), int(screen_width*0.008)))
+    pigeon2 = Pigeon(window_size[0] + 400, random.randint(50, screen_height - int(screen_height*0.074) - 10), screen_width*0.059,screen_height*0.074,(10,10,10), "images/animations/bird_1.png", pigeon_animation, random.randint(int(screen_width*0.005), int(screen_width*0.008)))
+    pigeon3 = Pigeon(window_size[0] + 400, random.randint(50, screen_height - int(screen_height*0.074) - 10), screen_width*0.059,screen_height*0.074,(10,10,10), "images/animations/bird_1.png", pigeon_animation, random.randint(int(screen_width*0.005), int(screen_width*0.008)))
 
     pigeons_lits = [pigeon1, pigeon2, pigeon3]
 
@@ -598,14 +668,17 @@ def third_level():
     while game:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
             if ev.type == pygame.KEYUP:
                 if ev.key == pygame.K_ESCAPE and end_game is False:
+                    sounds_list[3].play()
                     if menu_open == True:
                         menu_open = False
                     else:
                         menu_open = True
             if ev.type == pygame.MOUSEBUTTONUP and menu_open == True:
+                sounds_list[3].play()
                 exit_button_game.action(main_menu, [music_list[3], sounds_list[1]])
                 restart_button.action(third_level, [music_list[3], sounds_list[1]])
                 
@@ -687,18 +760,21 @@ def fourth_level():
         "Треба подалі",
         "триматися від людей,",
         "щоб вони тебе",
-        "не побачили. Забери хліб",
-        "та тікай через невидемі",
-        "для людей двері."
+        "не побачили. Забери",
+        "хліб та тікай через",
+        "невидемі для людей",
+        "двері."
     ], (255,255,255), int(screen_width*0.018))
     menu_text = Text(['Меню'],(255,255,255),int(screen_width*0.026))
 
     while game:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
             if ev.type == pygame.KEYUP:
                 if ev.key == pygame.K_ESCAPE:
+                    sounds_list[3].play()
                     if menu_open == True:
                         menu_open = False
                     elif level.stop_counter == 0:
@@ -708,6 +784,7 @@ def fourth_level():
                         if len(level.drop_list) == 0:
                             level_end = True
             if ev.type == pygame.MOUSEBUTTONUP and (menu_open == True or level.stop_game == True):
+                sounds_list[3].play()
                 exit_button_game.action(main_menu, [music_list[4]])
                 restart_button.action(fourth_level, [music_list[4]])
 
@@ -796,7 +873,7 @@ def credits():
 #=====================================================================================================================
 def options():
 
-    background =  pygame.image.load('images/settings_background.png')
+    background =  pygame.image.load('images/BACKGROUNDS/settings_background.png')
     background = pygame.transform.scale(background, (screen_width, screen_height))
     opt = True
 
@@ -833,58 +910,64 @@ def options():
     while opt:
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
+                sounds_list[3].play()
                 pygame.quit()
             if ev.type == pygame.MOUSEBUTTONUP:
 
                 #-=-=-=-=-=-=-=-=- return to menu and saving
                 return_button.action('press')
                 if return_button.pressed == True:
+                    sounds_list[3].play()
                     data = {'volume': {'music_volume': round(volume, 1), 'sounds_volume': round(sounds, 1)}, 'screen_size': {'screen_width': current_size[0], 'screen_height': current_size[1]}}
                     write(data, 'json/settings.json')
                     return_button.pressed = False
                     music_list[0].stop()
                     main_menu()
                 #-=-=-=-=-=-=-=-=- return to menu and saving
-                increase.action('press')
-                decrease.action('press')
-                if increase.pressed == True:
-                    for el in available_size:
-                        if el != current_size and available_size[counter] != current_size:
-                            counter += 1
-                    if counter < len(available_size) - 1:
-                        counter += 1
-                        current_size = available_size[counter]
-                        screen_value.text_list = [f'{current_size[0]} x {current_size[1]}']
+                # increase.action('press')
+                # decrease.action('press')
+                # if increase.pressed == True:
+                #     for el in available_size:
+                #         if el != current_size and available_size[counter] != current_size:
+                #             counter += 1
+                #     if counter < len(available_size) - 1:
+                #         counter += 1
+                #         current_size = available_size[counter]
+                #         screen_value.text_list = [f'{current_size[0]} x {current_size[1]}']
                         
-                    increase.pressed = False
+                #     increase.pressed = False
 
-                if decrease.pressed == True:
-                    for el in available_size:
-                        if el != current_size and available_size[counter] != current_size:
-                            counter += 1
-                    if counter > 0:
-                        counter -= 1
-                        current_size = available_size[counter]
-                        screen_value.text_list = [f'{current_size[0]} x {current_size[1]}']
+                # if decrease.pressed == True:
+                #     for el in available_size:
+                #         if el != current_size and available_size[counter] != current_size:
+                #             counter += 1
+                #     if counter > 0:
+                #         counter -= 1
+                #         current_size = available_size[counter]
+                #         screen_value.text_list = [f'{current_size[0]} x {current_size[1]}']
                         
-                    decrease.pressed = False
+                #     decrease.pressed = False
 
 
                 volume_minus_button.music_minus()
                 volume_plus_button.music_minus()
                 if volume_minus_button.pressed:
+                    sounds_list[3].play()
                     volume -= 0.1
                     volume_minus_button.pressed = False
                 if volume_plus_button.pressed:
+                    sounds_list[3].play()
                     volume += 0.1
                     volume_plus_button.pressed = False
 
                 volume_minus_button2.music_minus()
                 volume_plus_button2.music_minus()
                 if volume_minus_button2.pressed:
+                    sounds_list[3].play()
                     sounds -= 0.1
                     volume_minus_button2.pressed = False
                 if volume_plus_button2.pressed:
+                    sounds_list[3].play()
                     sounds += 0.1
                     volume_plus_button2.pressed = False
 
@@ -915,8 +998,8 @@ def options():
         line_into2.draw(screen)
         music_volume.draw_game_text(volume_minus_button.hitbox.x + screen_width*0.052, volume_minus_button.hitbox.y - decrease.hitbox.height - screen_height*0.027)
         sounds_volume.draw_game_text(volume_minus_button2.hitbox.x + screen_width*0.065, volume_minus_button2.hitbox.y - decrease.hitbox.height - screen_height*0.027)
-        screen_settings.draw_game_text(volume_minus_button2.hitbox.x + screen_width*0.0265, decrease.hitbox.y - decrease.hitbox.height - screen_height*0.027)
-        screen_value.draw_game_text((decrease.hitbox.x + increase.hitbox.right - screen_value.width)/2, decrease.hitbox.y + screen_height*0.005)
+        # screen_settings.draw_game_text(volume_minus_button2.hitbox.x + screen_width*0.0265, decrease.hitbox.y - decrease.hitbox.height - screen_height*0.027)
+        # screen_value.draw_game_text((decrease.hitbox.x + increase.hitbox.right - screen_value.width)/2, decrease.hitbox.y + screen_height*0.005)
         if current_size[0] != screen_width:
             reload_text.draw_game_text(screen_width*0.5,screen_height*0.05)
 
@@ -925,8 +1008,8 @@ def options():
         volume_plus_button.animate(screen)
         volume_minus_button2.animate(screen)
         volume_plus_button2.animate(screen)
-        increase.animate(screen)
-        decrease.animate(screen)
+        # increase.animate(screen)
+        # decrease.animate(screen)
 
         pygame.display.update()
         pygame.display.flip()

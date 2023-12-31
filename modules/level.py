@@ -54,11 +54,11 @@ class Level:
                 y = row_index * wall_size
                 self.g_width = len(row) * 108
                 if col == 'PO':
-                    self.player = Hero(x, y - 42, 66, 160, (255, 0, 0), "images/__game_picture__/heroes/hero_1.png", player1_images, 5, 1)
+                    self.player = Hero(x, y - 12, 66, 190, (255, 0, 0), "images/animations/hero_1_1.png", player1_images, 5, 1)
                 if col == 'PK':
-                    self.player = Hero(x, y - 42, 56, 150, (255, 0, 0), "images/__game_picture__/heroes/hero_2.png", player2_images, 5, 2)
+                    self.player = Hero(x, y - 12, 56, 190, (255, 0, 0), "images/animations/hero_2.png", player2_images, 5, 2)
                 if col == 'PN':
-                    self.player = Hero(x, y - 42, 66, 160, (255, 0, 0), "images/__game_picture__/heroes/hero_3.png", player3_images, 5, 3)
+                    self.player = Hero(x, y - 12, 66, 190, (255, 0, 0), "images/animations/hero_3_1.png", player3_images, 5, 3)
                 if col == 'SS':
                     self.exit = Exit('images/__game_picture__/door.png', x, y - wall_size*0.5, wall_size, wall_size + (wall_size*0.5), (0,0,0))
                 if col == 'WV':
@@ -177,10 +177,10 @@ class Level:
                     wall = Object('images/__game_picture__/crate2.png', x, y, wall_size, wall_size, (119,136,153))
                     self.wall_list.append(wall)
                     self.collide__list.append(wall)
-                if col == 'WW':
-                    wall = Object('images/__game_picture__/wood.png', x, y, wall_size, wall_size*0.25, (119,136,153))
-                    self.wall_list.append(wall)
-                    self.collide__list.append(wall)
+                # if col == 'WW':
+                #     wall = Object('images/__game_picture__/wood.png', x, y, wall_size, wall_size*0.25, (119,136,153))
+                #     self.wall_list.append(wall)
+                #     self.collide__list.append(wall)
                 if col == 'G1':
                     wall = Object('images/__game_picture__/ground.png', x, y, self.g_width, wall_size, (255, 255, 255), 'g')
                     self.wall_list.append(wall)
@@ -215,9 +215,9 @@ class Level:
                     self.drop_list.append(drop)
                     self.info_image = Object('images/gifts/teapot.png', screen_width*0.010, screen_height*0.018, screen_height*0.116, screen_width*0.053, (119,136,153))
                 if col == 'NR':
-                    self.npc_list.append(Npc(-5, 'r', 'images/__game_picture__/heroes/elf.png', npc_images, x, y - 92, 56, 200, (255, 0, 0)))
+                    self.npc_list.append(Npc(-5, 'r', 'images/animations/human.png', npc_images, x, y - 92, 56, 200, (255, 0, 0)))
                 if col == 'NL':
-                    self.npc_list.append(Npc(-5, 'l', 'images/__game_picture__/heroes/elf.png', npc_images, x, y - 92, 56, 200, (255, 0, 0)))
+                    self.npc_list.append(Npc(-5, 'l', 'images/animations/human.png', npc_images, x, y - 92, 56, 200, (255, 0, 0)))
                 if col == 'EE':
                     platform = Platform('down', 3, 2, 'y', 'images/__game_picture__/elevator.png', x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
@@ -246,34 +246,34 @@ class Level:
                     platform = Platform('up', 5, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E0':
-                    platform = Platform('down', 2, 2, 'y', 'images/__game_picture__/elevator.png', x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 10, 4, 'x', 'images/__game_picture__/elevator.png', x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E1':
-                    platform = Platform('down', 4, 2, 'y', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 6, 4, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size * 2, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E2':
-                    platform = Platform('down', 3, 2, 'y', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 5, 3, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E3':
-                    platform = Platform('down', 5, 4, 'y', 'images/__game_picture__/elevator.png',x, y, wall_size * 2, 20, (47,79,79))
+                    platform = Platform('up', 7, 3, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E4':
-                    platform = Platform('up', 5, 2, 'y', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 8, 3, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E5':
-                    platform = Platform('up', 3, 2, 'y', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 13, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E6':
-                    platform = Platform('up', 4, 2, 'y', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('up', 10, 2, 'x', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E7':
-                    platform = Platform('down', 3, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 6, 2, 'x', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E8':
-                    platform = Platform('down', 2, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('up', 5, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E9':
-                    platform = Platform('up', 2, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('down', 7, 5, 'x', 'images/__game_picture__/elevator.png',x, y+108, wall_size * 2, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'D1':
                     door = Door('images/__game_picture__/force_door_zipped.png', x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 1)

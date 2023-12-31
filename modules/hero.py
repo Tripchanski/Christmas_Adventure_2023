@@ -13,7 +13,7 @@ class Hero():
 
         #image -=-=-
         self.image = pygame.image.load(image)
-        self.image_right = pygame.transform.scale(self.image, (150, 200))
+        self.image_right = pygame.transform.scale(self.image, (150, 230))
         self.image_left = pygame.transform.flip(self.image_right, True, False)
         self.current_image = self.image_right
         self.facing = 'r'
@@ -22,13 +22,13 @@ class Hero():
         self.animation_right = []
         for src in animation:
             img = pygame.image.load(src)
-            img = pygame.transform.scale(img, (150, 200))
+            img = pygame.transform.scale(img, (150, 230))
             self.animation_right.append(img)
 
         self.animation_left = []
         for src in animation:
             img = pygame.image.load(src)
-            img = pygame.transform.scale(img, (150, 200))
+            img = pygame.transform.scale(img, (150, 230))
             img = pygame.transform.flip(img, True, False)
             self.animation_left.append(img)
         
@@ -53,7 +53,7 @@ class Hero():
 
         if self.facing == 'r':
             if self.pk == 2:
-                screen.blit(self.animation_right[self.animCounter // 5], (self.hitbox.x - 70, self.hitbox.y - 50))
+                screen.blit(self.animation_right[self.animCounter // 5], (self.hitbox.x - 70, self.hitbox.y - 40))
                 self.animCounter += 1
             elif self.pk == 3:
                 screen.blit(self.animation_right[self.animCounter // 5], (self.hitbox.x - 60, self.hitbox.y - 40))
@@ -63,7 +63,7 @@ class Hero():
                 self.animCounter += 1
         elif self.facing == 'l':
             if self.pk == 2:
-                screen.blit(self.animation_left[self.animCounter // 5], (self.hitbox.x - 25, self.hitbox.y - 50))
+                screen.blit(self.animation_left[self.animCounter // 5], (self.hitbox.x - 25, self.hitbox.y - 40))
                 self.animCounter += 1
             elif self.pk == 3:
                 screen.blit(self.animation_left[self.animCounter // 5], (self.hitbox.x - 30, self.hitbox.y - 40))
