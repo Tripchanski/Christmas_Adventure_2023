@@ -280,43 +280,43 @@ class Level:
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B1':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 1))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on1.png', 'images/KEY_BUTTONS/button_off1.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 1))
                 if col == 'D2':
                     door = Door('images/__game_picture__/force_door_zipped.png',x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 2)
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B2':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 2))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on2.png', 'images/KEY_BUTTONS/button_off2.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 2))
                 if col == 'D3':
                     door = Door('images/__game_picture__/force_door_zipped.png',x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 3)
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B3':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 3))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on3.png', 'images/KEY_BUTTONS/button_off3.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 3))
                 if col == 'D4':
                     door = Door('images/__game_picture__/force_door_zipped.png',x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 4)
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B4':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 4))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on4.png', 'images/KEY_BUTTONS/button_off4.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 4))
                 if col == 'D5':
                     door = Door('images/__game_picture__/force_door_zipped.png',x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 5)
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B5':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 5))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on5.png', 'images/KEY_BUTTONS/button_off5.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 5))
                 if col == 'D6':
                     door = Door('images/__game_picture__/force_door_zipped.png',x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 6)
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B6':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 6))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on6.png', 'images/KEY_BUTTONS/button_off6.png', x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 6))
                 if col == 'D7':
                     door = Door('images/__game_picture__/force_door_zipped.png',x + ((wall_size - 60) // 2), y, 60, wall_size * 2, (139, 69, 19), 7)
                     self.door_list.append(door)
                     self.collide__list.append(door)
                 if col == 'B7':
-                    self.level_arm_list.append(Level_arm('images/__game_picture__/button_on.png', 'images/__game_picture__/button_off.png',x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 7))
+                    self.level_arm_list.append(Level_arm('images/KEY_BUTTONS/button_on7.png', 'images/KEY_BUTTONS/button_off7.png',x + ((wall_size - 54) // 2), y + ((wall_size - 54) // 2), 54, 54, 7))
 
     def setup_camera(self, layout):
         length = len(layout)

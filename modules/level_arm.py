@@ -1,6 +1,7 @@
 import pygame
-import time
 from modules.level_map import window_size
+sound = pygame.mixer.Sound('sounds/SOUNDS/Button_On.mp3')
+
 class Level_arm():
     def __init__(self, image_on, image_off, x, y, width, height, pk):
         self.hitbox = pygame.Rect(x, y, width, height)
@@ -12,7 +13,7 @@ class Level_arm():
         self.image_off = pygame.transform.scale(self.image_off, (self.hitbox.width, self.hitbox.height))
         self.pk = pk
         self.hint = pygame.Rect(window_size[0] // 2 - 32, 250, 85, 85)
-        self.hint_image = pygame.image.load('images/__game_picture__/press_e.png')
+        self.hint_image = pygame.image.load('images/__game_picture__/hold_e.png')
         self.hint_image = pygame.transform.scale(self.hint_image, (self.hint.width, self.hint.height))
 
     def draw(self, window):
@@ -29,7 +30,7 @@ class Level_arm():
         if player.hitbox.colliderect(self.hitbox):
             if keys[pygame.K_e]:
                 self.is_on = True
-
+                
 
     def update(self, x_shift, y_shift):
         self.hitbox.x += x_shift
