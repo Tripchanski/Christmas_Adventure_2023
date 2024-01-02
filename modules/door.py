@@ -2,7 +2,7 @@ from modules.object import Object
 from modules.json import *
 import pygame
 sound = pygame.mixer.Sound('sounds/SOUNDS/Button_On.mp3')
-sound.set_volume(round(read('../json/settings.json')['volume']['sounds_volume'], 1))
+sound.set_volume(round(read('json/settings.json')['volume']['sounds_volume'], 1))
 class Door(Object):
 	def __init__(self, image, x, y, width, height, color, pk=None):
 		super().__init__(image, x, y, width, height, color, pk)
