@@ -1,6 +1,8 @@
 import pygame
+from modules.json import *
 from modules.object import Object
 sound = pygame.mixer.Sound('sounds/SOUNDS/PickUp.mp3')
+sound.set_volume(round(read('../json/settings.json')['volume']['sounds_volume'], 1))
 class Pickup(Object):
     def __init__(self, image, x, y, width, height, color, pk=None):
         super().__init__(image, x, y, width, height, color, pk)

@@ -267,7 +267,7 @@ class Level:
                     platform = Platform('up', 9, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E7':
-                    platform = Platform('up', 6, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
+                    platform = Platform('up', 5, 2, 'x', 'images/__game_picture__/elevator.png',x, y, wall_size, 20, (47,79,79))
                     self.platform_list.append(platform)
                 if col == 'E8':
                     platform = Platform('up', 5, 2, 'y', 'images/__game_picture__/elevator.png',x, y+108, wall_size, 20, (47,79,79))
