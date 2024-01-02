@@ -543,7 +543,7 @@ def second_level():
     game = True
 
     volume = round(read('json/settings.json')['volume']['music_volume'], 1)
-    # music_list[6].play(loops=-1)
+    music_list[6].play(loops=-1)
 
     level = Level(level_map2, sounds_list)
     menu_open = False
@@ -1016,4 +1016,4 @@ def options():
 #=====================================================================================================================
 
 
-main_menu()
+second_level()
